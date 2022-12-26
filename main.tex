@@ -1,0 +1,58 @@
+\documentclass[system, master]{systemM}
+%\documentclass[oneside]{suribt}% 本文が * ページ以下のときに (掲示に注意)
+\bibliographystyle{junsrt} 
+
+\usepackage[dvipdfmx]{graphicx,color}
+\usepackage{url}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage[normalem]{ulem}
+
+\usepackage{subfiles} % Best loaded last in the preamble
+
+\title{タイトル}
+%\titlewidth{}% タイトル幅 (指定するときは単位つきで)
+\author{かせがお}
+\eauthor{Kasegao}% Copyright 表示で使われる
+\studentid{学生証番号}
+\supervisor{指導教員名 役職}% 1 つ引数をとる (役職まで含めて書く)
+%\supervisor{指導教員名 役職 \and 指導教員名 役職}% 複数教員の場合，\and でつなげる
+\handin{2016}{1}% 提出月. 2 つ (年, 月) 引数をとる
+%\keywords{キーワード1, キーワード2} % 概要の下に表示される
+
+\begin{document}
+\maketitle%%%%%%%%%%%%%%%%%%% タイトル %%%%
+
+\frontmatter% ここから前文
+
+\etitle{Title in English}
+
+\begin{eabstract}%%%%%%%%%%%%% 概要 %%%%%%%%
+ 300 words abstract in English should be written here. 
+\end{eabstract}
+
+\begin{abstract}%%%%%%%%%%%%% 概要 %%%%%%%%
+ ここに概要を書く．
+\end{abstract}
+
+
+%%%%%%%%%%%%% 目次 %%%%%%%%
+%\tableofcontents
+{\makeatletter
+\let\ps@jpl@in\ps@empty
+\makeatother
+\pagestyle{empty}
+\tableofcontents
+\clearpage}
+
+\mainmatter% ここから本文 %%% 本文 %%%%%%%%
+\subfile{chapters/symbols}
+
+\backmatter% ここから後付
+\chapter{謝辞}%%%%%%%%%%%%%%% 謝辞 %%%%%%%
+
+\bibliography{references}
+
+\appendix% ここから付録 %%%%% 付録 %%%%%%%
+\chapter{}
+\end{document}
